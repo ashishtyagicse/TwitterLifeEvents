@@ -23,7 +23,7 @@ def CountModel(StatusDataRdd):
 	if not DetectedTopic == []:
 		print DetectedTopic
 		TweetDataFrame = SqlContext.createDataFrame(SparkContext.parallelize(DetectedTopic))
-		TweetDataFrame.write.mode('append').parquet("/Users/ashishtyagi/Desktop/Test")
+		TweetDataFrame.write.mode('append').parquet(ConfigProvider.OutputParquetFilePath)
 # for saving to HBase	
 # 	HBaseInsert = []
 # 	for Topic in DetectedTopic:
