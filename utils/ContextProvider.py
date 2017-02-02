@@ -11,7 +11,8 @@ def getSparkInstance():
     global sparkContext
     if sparkContext == None:
         # Create Spark Context
-        conf = SparkConf().setAppName(ConfigProvider.JobName).setMaster(ConfigProvider.ExecutionMode).set("spark.executor.instances", 3).set("spark.local.ip", "127.0.0.1")
+        conf = SparkConf().setAppName(ConfigProvider.JobName)
+        #.setMaster(ConfigProvider.ExecutionMode).set("spark.executor.instances", 3).set("spark.local.ip", "127.0.0.1")
         sparkContext = SparkContext(conf=conf)
     return sparkContext
 

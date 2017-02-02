@@ -1,7 +1,7 @@
 import ConfigParser
 
 config = ConfigParser.SafeConfigParser()
-config.read("resources/application.conf")
+config.read("application.conf")
 
 TweetsFilePath = config.get("Paths", "TweetsFile")
 ApostropesWordPath = config.get("Paths", "ApostropesWord")
@@ -11,7 +11,7 @@ UserFilePath = config.get("Paths", "UserFile")
 OutputParquetFilePath = config.get("Paths", "OutoutParquetFile")
 
 JobName = config.get("Job Details", "JobName")
-ExecutionMode = config.get("Job Details","ExecutionMode")
+#ExecutionMode = config.get("Job Details","ExecutionMode")
 StreamingInterval = config.get("Job Details","StreamingInterval")
 HbaseHost = config.get("Job Details","HbaseHost")
 
