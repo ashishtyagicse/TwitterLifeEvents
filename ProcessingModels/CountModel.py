@@ -21,11 +21,11 @@ def CountModel(StatusDataRdd):
 			DetectedTopic.append( {"topic" : Topic["topic"], "date" : TweetDate.strftime('%m/%d/%Y') , "Id": StatusData["id"]} )
 		
 	
-	if not DetectedTopic == []:
+	if DetectedTopic == []:
 		DetectedTopic.append( {"topic" : "None", "date" : TweetDate.strftime('%m/%d/%Y') , "Id": StatusData["id"]} )
-		print DetectedTopic
-		TweetDataFrame = SqlContext.createDataFrame(SparkContext.parallelize(DetectedTopic))
-		TweetDataFrame.write.mode('append').parquet(ConfigProvider.OutputParquetFilePath)
+	print DetectedTopic
+	TweetDataFrame = SqlContext.createDataFrame(SparkContext.parallelize(DetectedTopic))
+	TweetDataFrame.write.mode('append').parquet(ConfigProvider.OutputParquetFilePath)
 # for saving to HBase	
 # 	HBaseInsert = []
 # 	for Topic in DetectedTopic:
