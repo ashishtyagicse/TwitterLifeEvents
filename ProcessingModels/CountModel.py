@@ -14,13 +14,15 @@ def CountModel(StatusDataRdd):
 	ClanedTweetText = Cleaner.ReplaceApostropes(ApostropesReplaceList.value , Cleaner.RemovePunctuations(StatusData["text"]))
 	BareTweetWords = Cleaner.RemoveStopWords(StopWordsList.value, ClanedTweetText).split()
 	DetectedTopic = []
+	TweetDate = datetime.strptime(StatusData["created_at"][:19] + StatusData["created_at"][25:], '%a %b %d %X %Y')
+	
 	for Topic in LifeEventsList.value["topic_list"]:
-		if Topic["topic"] in BareTweetWords or Topic["stem_words"] in BareTweetWords:
-			TweetDate = datetime.strptime(StatusData["created_at"][:19] + StatusData["created_at"][25:], '%a %b %d %X %Y')
+		if Topic["topic"] in BareTweetWords or Topic["stem_words"] in BareTweetWords:		
 			DetectedTopic.append( {"topic" : Topic["topic"], "date" : TweetDate.strftime('%m/%d/%Y') , "Id": StatusData["id"]} )
 		
 	
 	if not DetectedTopic == []:
+		DetectedTopic.append( {"topic" : "None", "date" : TweetDate.strftime('%m/%d/%Y') , "Id": StatusData["id"]} )
 		print DetectedTopic
 		TweetDataFrame = SqlContext.createDataFrame(SparkContext.parallelize(DetectedTopic))
 		TweetDataFrame.write.mode('append').parquet(ConfigProvider.OutputParquetFilePath)
