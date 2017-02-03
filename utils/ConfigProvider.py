@@ -26,7 +26,7 @@ JobName = config.get("Job Details", "JobName")
 #ExecutionMode = config.get("Job Details","ExecutionMode")
 StreamingInterval = config.get("Job Details","StreamingInterval")
 HbaseHost = config.get("Job Details","HbaseHost")
-MaxPartFiles = config.get("Job Details","MaxPartFiles")
+MaxPartFiles = int(config.get("Job Details","MaxPartFiles"))
 
 # Provides details of all available models and models that needs to be run
 AllModels = config.get("Models", "all").split(',')
