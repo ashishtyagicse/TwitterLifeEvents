@@ -1,12 +1,12 @@
 {
-	"topic_list" : [{
-		"topic" : "merrage",
-		"stem_words" : ["wedding", "marrying", "married"],
-		"related_words" : ["congratulations", "congrats", "awesome", "couple"]
+	"LifeEventList" : [{
+		"Event" : "marriage",
+		"StemWords" : ["wedding", "marrying", "married"],
+		"RelatedCommentWords" : ["congratulations", "congrats", "awesome", "couple"]
 	},
 	{
-		"topic" : "graduation",
-		"stem_words" : ["graduated", "graduating"],
-		"related_words" : ["congratulations", "congrats", "awesome"]
+		"Event" : "graduation",
+		"StemWords" : ["graduated", "graduating"],
+		"RelatedCommentWords" : ["congratulations", "congrats", "awesome"]
 	}]
 }
