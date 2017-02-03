@@ -4,7 +4,7 @@
 # Instruction for running in cluster mode with Yarn 
 1) Download the code from Github  
 2) Change output parquet file path in application.conf file   
-3) Change all project relative paths in application.conf from resources/File Name to File Name
+3) Change all project relative paths in application.conf from resources/File Name to File Name  
 4) Change application.conf file path in utils/ConfigProvider.py from resources/application.conf to application.conf  
 5) CD to diectory where you unpacked code from github  
 6) Create a ZIP for the entire project structure with following command   
