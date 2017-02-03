@@ -10,6 +10,7 @@
 
 from utils import ContextProvider, FileContentLoader, ConfigProvider, Cleaner, HbaseSave
 from datetime import datetime
+from pyspark.sql.functions import coalesce
 
 def CountModel(StatusDataRdd):
 	# Create or get spark and SQL Context and broadcast stop words, Apostrophes word and life events list.
